@@ -15,7 +15,8 @@
   <!-- using searchCtrl as an alias for the GitUserSearchController in the view -->
     <div>
       <form class="form-horizontal">
-        <input type="text" ng-model="searchCtrl.searchTerm">
+        <input type="text" ng-model="searchCtrl.searchTerm" ng-change="searchCtrl.doSearch()" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }">
+        <!--model-options will fire the change event after 500ms of no activity -->
         <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
       <ul class="list-group">
